@@ -15,13 +15,13 @@ def plot(tile_source):
     y_range = Range1d(start=airports['y'].min() - 10000, end=airports['y'].max() + 10000, bounds=None)
 
     # create plot and add tools
-    p = figure(tools='hover,wheel_zoom,pan', x_range=x_range, y_range=y_range, title=title
+    p = figure(tools='hover,wheel_zoom,pan', x_range=x_range, y_range=y_range, title=title,
                tooltips=[("Name", "@name"), ("Elevation", "@elevation (m)")])
     p.axis.visible = False
     p.add_tile(tile_source)
 
     # create point glyphs
-    p.circle(x='x', y='y', size=9, fill_color="#F46B42", line_color="#D2C4C1", line_width=1.5, source=air)
+    p.circle(x='x', y='y', size=9, fill_color="#F46B42", line_color="#D2C4C1", line_width=1.5, source=airports)
     return p
 
 # create a tile source
